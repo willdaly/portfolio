@@ -3,10 +3,34 @@ html
   head
     meta(charset='utf-8')
     title= title
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
     link(href='/css/normalize.css', rel='stylesheet')
     link(href='/css/buttons.css', rel='stylesheet')
     link(href='/less/app.css', rel='stylesheet')
   body
+    #nav.navbar.navbar-default(role='navigation')
+      div.container-fluid
+        div.navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+          ul.nav-navbar-nav
+            a.navbar-brand(href='/') Will Daly Portfolio
+            a.button.button-rounded(href='/about') about
+            a.button.button-rounded(href='/faq') faq
+            a.button.button-rounded(href='/contact') contact
+            a.button.button-rounded(href='/resume') resume
+            a.button.button-rounded(href='/users') login
+            a.button.button-rounded(href='/projects') projects
+
+        if(user)
+          a.navbar-text.navbar-right(href='/logout')= user.email
+          a.navbar-text.navbar-right.button.button-rounded(href='/projects/new') new project
+          a.navbar-text.navbar-right.button.button-rounded(href='logout') logout
+
     block content
 
     script(src='/js/vendor/jquery-2.1.1.js')
@@ -17,6 +41,7 @@ html
     script(src='/socket.io/socket.io.js')
     script(src='/js/es5/main.js')
     script(src='/js/es6/compiled/main.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
     script(src='/js/es6/compiled/sockets.js')
 
     block scripts

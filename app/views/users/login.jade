@@ -1,0 +1,13 @@
+extends ../shared/template
+
+block content
+  #login
+    h1 login
+    form#loginForm(action='/login', method='post')
+      .input-group
+        span.input-group-addon.glyphicon.glyphicon-envelope
+        input.form-control(type='email', name='email', autofocus=true)
+      .input-group
+        span.input-group-addon password
+        input.form-control(type='password', name='password')
+      button.btn.btn-default#login login

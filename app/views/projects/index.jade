@@ -1,0 +1,20 @@
+extends ../shared/template
+
+block content
+  h1 portfolio
+  each project in projects
+    .project
+      h2= project.title
+      p= project.description
+      each photo in project.photos
+        .photo(style='background-image: url(/img/#{photo})')
+      h3 technologies used
+      ul
+        each tag in project.tags
+          li= tag
+      a.btn.btn-info(href='#{project.git}') view code on github
+      p= project.app
+      button.btn.btn-warning.glyphicon.glyphicon-trash.delete
+
+block scripts
+  script(src='/js/es6/compiled/project.js')

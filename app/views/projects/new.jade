@@ -1,0 +1,28 @@
+extends ../shared/template
+
+block content
+  h1 portfolio
+  #newProject
+    form(action='/projects', method='post', enctype='multipart/form-data')
+      .input-group
+        span.input-group-addon project title
+        input.form-control(type='text', name='title')
+      .input-group
+        span.input-group-addon description
+        textarea.form-control(type='text', name='description')
+      .input-group
+        span.input-group-addon tags
+        input.form-control(type='text', name='tags')
+      .input-group
+        span.input-group-addon git link
+        input.form-control(type='text', name='git')
+      .input-group
+        span.input-group-addon application
+        input.form-control(type='text', name='app')
+      .input-group
+        span.input-group-addon date
+        input.form-control(type='date', name='date')
+      .input-group
+        span.input-group-addon photos
+        input.form-control(type='file', name='photos', multiple=true)
+      button.btn.btn-primary add project
